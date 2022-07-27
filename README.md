@@ -30,3 +30,14 @@ mfmcmc(func,prior,X,y,guess,risk):
         
       guess: the initial guess for your parameter
         This should match the size of A, and make sure to align the order of the values with that of A.
+        
+  Outputs:
+    
+     mfmcmc: object with several properties
+      mfmcmc.theta is the Markov Chain, where each row is the 
+      
+      
+      
+      
+      
+      
