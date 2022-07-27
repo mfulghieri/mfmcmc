@@ -1,8 +1,7 @@
 import numpy as np
 import random as r
 
-
-def mcmc(data, polymer, num_of_scans):
+def mcmc(func,prior,X,y,guess,risk,iter):
 ## This function uses a Metropolis-Hastings algorithm in order
 ## to optimize the fit parameters. It returns the optimal 
 ## parameters as well as histograms describing the parameter space
