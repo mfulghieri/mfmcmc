@@ -34,7 +34,12 @@ mfmcmc(func,prior,X,y,guess,risk):
   Outputs:
     
      mfmcmc: object with several properties
-      mfmcmc.theta is the Markov Chain, where each row is the 
+      mfmcmc.chain is the Markov Chain, where each row corresponds to a parameter, and the columns are 
+      the different iterations. This can be used to produce both histograms and walks. 
+      
+      mfmcmc.theta is the estimated best parameters. Be mindful, however, because it is often best to
+      interpret yourself. This code is not sophisticated and struggles with multimodal instances
+      
       
       
       
