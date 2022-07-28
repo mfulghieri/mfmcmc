@@ -6,7 +6,7 @@ This code is a truly basic Monte Carlo code, meant to be used qualitatively. Lea
 
 I will also provide here the documentation for my home-made Monte Carlo. 
 
-mfmcmc(func,prior,X,y,guess,risk):
+mfmcmc(func,prior,X,y,guess,risk,iter,burn):
 
   Inputs:
       
@@ -30,6 +30,18 @@ mfmcmc(func,prior,X,y,guess,risk):
         
       guess: the initial guess for your parameter
         This should match the size of A, and make sure to align the order of the values with that of A.
+        
+      risk: how risky the stepper should be
+     
+      step: the step size for each parameter
+        This should match the size of A, and make sure to align the order of the values with that of A. 
+        The step size should match the scale of the paramter space. 
+      
+      iter: number of iterations to perform. 
+      
+      burn: how many iterations to exclude
+      
+      
         
   Outputs:
     
