@@ -17,8 +17,8 @@ mfmcmc(func,prior,X,y,guess,risk,step,iter,burn):
         A is the parameter. Similarly, you can store more than just one by also using a tuple. 
         
       prior(A,guess): the prior distributions to use
-        A is the current parameter being loooked at. guess is the first parameter. If guess is not used, 
-        still include in the argument. It is included in case you may want to have your parameter space
+        A is the current parameter being loooked at. guess is the inital parameter. If guess is not used
+        within prior, still include in the argument. It is included in case you may want to have your parameter space
         investigated around the initial guess. For example: p(A) = scipy.stats.norm( (A[0] - guess[0]) / sigma )
         
       X: the independent variable in the data set
@@ -51,10 +51,6 @@ mfmcmc(func,prior,X,y,guess,risk,step,iter,burn):
       
       mfmcmc.theta is the estimated best parameters. Be mindful, however, because it is often best to
       interpret yourself. This code is not sophisticated and struggles with multimodal instances
-      
-      
-      
-      
       
       
       
