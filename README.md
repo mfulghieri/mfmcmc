@@ -6,7 +6,7 @@ This code is a truly basic Monte Carlo code, meant to be used qualitatively. Lea
 
 I will also provide here the documentation for my home-made Monte Carlo. 
 
-mfmcmc(func,prior,X,y,guess,risk,iter,burn):
+mfmcmc(func,prior,X,y,guess,risk,step,iter,burn):
 
   Inputs:
       
