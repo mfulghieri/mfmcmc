@@ -37,8 +37,8 @@ def mcmc(func,prior,X,y,guess,risk,step,iter,burn):
 		theta[:,i+1] += delta*(2*u-1)
 		
 		## Get change
-		new = getP(theta[:,i+1],data,polymer,j,guess,sigy)
-		old = getP(theta[:,i],data,polymer,j,guess,sigy)
+		new = getP(func,prior,X,y,guess,risk,theta[:,i+1])
+		old = getP(func,prior,X,y,guess,risk,theta[:,i])
 		diff = new / old	
 
 		if utest <= diff:	
@@ -49,15 +49,23 @@ def mcmc(func,prior,X,y,guess,risk,step,iter,burn):
 		
 	theta = theta[:,ncut:]
 	
-	## Finally, collect the output parameters
-	t_mc = np.zeros(2,num_of_scans)	
-	print("Select the best fit parameters, with Enter in between: ")
-	t_mc[0,j] = float(input())
-	t_mc[1,j] = float(input())
-	
 	## A good acceptance rate is 0.25-0.4
 	print("Acceptance rate: ", accept / (T*num_of_scans))
 	
-	return t_mc	
+	return theta	
+
+def getP(func,prior,X,y,guess,risk,theta):
+## Uses inverse exponential in order to obtain a probability fron the 
+## square of the residuals
+	exp = func(X,theta)
+	res2 = (y - exp) ** 2
+	
+        p = np.prod(np.exp( -  res2 / risk ))
+	p *= 100000
+	p *= prior(theta,guess)
+
+        return p
+
+
 
 
